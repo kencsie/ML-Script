@@ -1,0 +1,14 @@
+### How to use
+
+0.Clone it
+1.Install docker
+2.Build & Run
+
+
+```
+git clone https://github.com/kencsie/ML-Script.git
+bash docker.sh
+cd conda
+docker build -t conda .
+docker run --name Conda conda
+```
