@@ -1,0 +1,13 @@
+# Accept a build-time argument to determine which base image to use
+ARG BASE_IMAGE=tensorflow/tensorflow:2.12.0-gpu
+
+FROM ${BASE_IMAGE}
+
+# Copy the test file into the container
+COPY ./test_file /test_file
+
+# Set the working directory
+WORKDIR /home
+
+# Run Jupyter Notebook when the container launches
+CMD ["bash"]
