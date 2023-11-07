@@ -1,0 +1,13 @@
+# Accept a build-time argument to determine which base image to use
+ARG BASE_IMAGE=pytorch/pytorch:1.13.1-cuda11.6-cudnn8-runtime
+
+FROM ${BASE_IMAGE}
+
+# Copy the test file into the container
+COPY ./test_file /test_file
+
+# Set the working directory
+WORKDIR /home
+
+# Run Jupyter Notebook when the container launches
+CMD ["bash"]

@@ -21,11 +21,11 @@ if [ "$use_jupyter" = "y" ]; then
     host_port=${host_port:-8888}
     port_mapping="-p ${host_port}:8888"
     container_tag="tensorflow:2.12.0-gpu-jupyter"
-    dockerfile_name="Dockerfile.juypter"
+    dockerfile_name="Dockerfile.jupyter"
 else
     port_mapping=""
     container_tag="tensorflow:2.12.0-gpu"
-    dockerfile_name="Dockerfile.no_juypter"
+    dockerfile_name="Dockerfile.no_jupyter"
 fi
 
 # Build the Docker image

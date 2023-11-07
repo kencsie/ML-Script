@@ -1,5 +1,5 @@
 # Accept a build-time argument to determine which base image to use
-ARG BASE_IMAGE=tensorflow/tensorflow:2.12.0-gpu
+ARG BASE_IMAGE=pytorch/pytorch:1.13.1-cuda11.6-cudnn8-runtime
 
 FROM ${BASE_IMAGE}
 
