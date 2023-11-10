@@ -13,5 +13,9 @@ WORKDIR /home
 RUN pip install jupyterlab
 EXPOSE 8888
 
+#fix shell env
+#https://github.com/jupyter/notebook/issues/2457
+ENV SHELL=/bin/bash
+
 # Run Jupyter Notebook when the container launches
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
