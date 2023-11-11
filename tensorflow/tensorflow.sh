@@ -32,4 +32,4 @@ fi
 docker build --build-arg BASE_IMAGE=$base_image -t $container_tag -f $dockerfile_name .
 
 # Run the Docker container
-docker run -it $port_mapping --gpus all --name "$container_name" $volume_mapping $container_tag
+docker run -it $port_mapping --gpus all --ipc=host --name "$container_name" $volume_mapping $container_tag
