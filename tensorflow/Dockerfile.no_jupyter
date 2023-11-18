@@ -9,5 +9,8 @@ COPY ./test_file /test_file
 # Set the working directory
 WORKDIR /home
 
+# Install screen & tmux
+RUN apt-get update && apt-get install -y tmux && apt-get install -y screen
+
 # Run Jupyter Notebook when the container launches
 CMD ["bash"]

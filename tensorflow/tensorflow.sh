@@ -22,14 +22,18 @@ if [ "$use_jupyter" = "y" ]; then
     port_mapping="-p ${host_port}:8888"
     container_tag="tensorflow:2.12.0-gpu-jupyter"
     dockerfile_name="Dockerfile.jupyter"
+    extra_argument="-it"
+    post_argument=""
 else
     port_mapping=""
     container_tag="tensorflow:2.12.0-gpu"
     dockerfile_name="Dockerfile.no_jupyter"
+    extra_argument="-d"
+    post_argument="tail -f /dev/null"
 fi
 
 # Build the Docker image
 docker build --build-arg BASE_IMAGE=$base_image -t $container_tag -f $dockerfile_name .
 
 # Run the Docker container
-docker run -it $port_mapping --gpus all --ipc=host --name "$container_name" $volume_mapping $container_tag
+docker run $extra_argument $port_mapping --gpus all --ipc=host --name "$container_name" $volume_mapping $container_tag $post_argument
